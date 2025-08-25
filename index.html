@@ -1,307 +1,328 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project "My Atelier" - A Strategic Roadmap</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Proposta per la tua Casa Vacanze a Saint Tropez</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500;600;700&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+        /* === PALETTE COLORI PROVENZALE === */
         :root {
-            --bv-green: #004d40;
-            --off-white: #f7f7f7;
-            --text-dark: #1a1a1a;
-            --text-light: #6b7280;
+            --background-color: #fdfaf6; /* Bianco caldo, sabbia */
+            --primary-color: #5c6b7d;   /* Blu-grigio ardesia, elegante */
+            --accent-color: #c08552;    /* Terracotta / Ocra */
+            --text-color: #333333;      /* Grigio scuro per testo */
+            --light-bg-section: #f7f2ec; /* Sfondo sezioni leggermente più scuro */
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--off-white);
-            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
 
-        .font-brand { font-family: 'Cormorant Garamond', serif; }
-
-        .section-container {
+        .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 4rem 1.5rem;
+            padding: 20px;
         }
 
-        .section-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--bv-green);
-            margin-bottom: 1rem;
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
         }
 
-        .main-headline {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 600;
-            line-height: 1.2;
-            margin-bottom: 2rem;
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
         }
 
-        .sub-headline {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            max-width: 80%;
-            margin-bottom: 3rem;
+        .header p {
+            font-size: 1.2em;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-top: 10px;
         }
 
-        .gantt-bar {
-            background-color: var(--bv-green);
-            opacity: 0.2;
-            height: 1.5rem;
-            border-radius: 0.25rem;
-            position: relative;
-        }
-        .gantt-progress {
-            background-color: var(--bv-green);
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            border-radius: 0.25rem;
-            transition: width 1s ease-in-out;
-            width: 0;
-        }
-
-        .wireframe {
-            border: 1px solid #e5e7eb;
-            background-color: #ffffff;
-            border-radius: 1.5rem;
-            padding: 1rem;
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            width: 280px; /* Mobile width */
-            margin: 1rem auto;
         }
 
-        .metric-card {
-            background-color: #fff;
-            border: 1px solid #e5e7eb;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
+        .section h2 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-item {
+            background-color: var(--light-bg-section);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .service-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .service-item p {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .main-image, .explanatory-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
         
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        .main-image {
+            margin-top: 20px;
+        }
+        
+        .explanatory-image {
+            margin-top: 30px; /* Aggiunto spazio sopra l'immagine esplicativa */
         }
 
-        .is-visible {
-            opacity: 1;
-            transform: translateY(0);
+        .gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            align-items: start; 
         }
+
+        .gallery .gallery-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 0;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .gallery .gallery-image:hover {
+            transform: scale(1.03);
+        }
+
+        .quote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            font-style: italic;
+            color: #555;
+            margin-top: 30px;
+        }
+
+        .pricing {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            color: white;
+            border-bottom-color: var(--accent-color);
+        }
+
+        .price {
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 20px 0 10px 0;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.5em;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            margin-top: 20px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* STILI PER IL POPUP (LIGHTBOX) */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            padding-top: 50px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.9); 
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 1200px;
+            animation: zoom-in 0.5s;
+        }
+
+        @keyframes zoom-in {
+            from {transform: scale(0.8)}
+            to {transform: scale(1)}
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Hero Section -->
-    <section class="section-container min-h-screen flex flex-col justify-center text-center">
-        <h2 class="section-title">Project "My Atelier"</h2>
-        <h1 class="main-headline">A Strategic Roadmap for<br>Personalized Digital Luxury</h1>
-        <p class="sub-headline mx-auto">Transforming the Bottega Veneta digital flagship from a transactional store into an indispensable personal styling service to drive unparalleled engagement and customer loyalty.</p>
-        <div class="text-xs uppercase tracking-wider text-gray-400">
-            <span>Bottega Veneta | Digital Innovation Group</span>
-            <span class="mx-2">|</span>
-            <span id="current-date"></span>
+    <div class="container">
+
+        <div class="header">
+            <h1>Ciao Valerie,</h1>
+            <p>Trasformiamo la tua casa vacanze in una destinazione online d'eccellenza.</p>
         </div>
-    </section>
 
-    <!-- The Vision Section -->
-    <section class="section-container bg-white">
-        <h2 class="section-title fade-in">The Vision</h2>
-        <h3 class="main-headline fade-in">From a Store to a Stylist.</h3>
-        <p class="text-lg text-gray-600 leading-relaxed max-w-3xl fade-in">
-            Today, our digital platform is a world-class e-commerce destination. Tomorrow, it becomes an essential partner in our clients' style journey. By integrating state-of-the-art AI, we will move beyond passive browsing to build deep, data-driven relationships, making Bottega Veneta the definitive authority on personal luxury.
-        </p>
-    </section>
+        <div class="section">
+            <h2>L'Obiettivo: Più Visibilità, Più Prenotazioni</h2>
+            <p>Per valorizzare al meglio la tua splendida casa vicino a Saint Tropez e renderla irresistibile per ospiti internazionali, ho pensato a un pacchetto completo di strumenti digitali. L'idea è creare un'identità professionale online che aumenti la visibilità, semplifichi le prenotazioni e renda la tua struttura unica e riconoscibile.</p>
+            <img src="https://i.imgur.com/DRFqv9O.jpeg" alt="Immagine della casa vacanze" class="main-image">
+        </div>
 
-    <!-- Technology Strategy Section -->
-    <section class="section-container">
-        <h2 class="section-title fade-in">Technology & Partnership Strategy</h2>
-        <h3 class="main-headline fade-in">Intelligent Integration, Not In-House R&D.</h3>
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade-in">
-                <p class="text-lg text-gray-600 leading-relaxed">
-                    Our strategy is to **leverage best-in-class, enterprise-grade AI services from Google Cloud**. This approach eliminates the immense cost, risk, and time associated with building proprietary AI models.
-                    <br><br>
-                    We offload the complex "heavy lifting" of AI infrastructure and model training to Google, allowing us to focus our resources on what we do best: **crafting a seamless and luxurious customer experience.**
-                </p>
-            </div>
-             <div class="fade-in">
-                <div class="bg-white p-6 rounded-lg border border-gray-200 space-y-4">
-                    <div class="flex items-start gap-4">
-                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 23V12C40 10.3431 38.6569 9 37 9H11C9.34315 9 8 10.3431 8 12V36C8 37.6569 9.34315 39 11 39H24" stroke="#4285F4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 23C26.7614 23 29 20.7614 29 18C29 15.2386 26.7614 13 24 13C21.2386 13 19 15.2386 19 18C19 20.7614 21.2386 23 24 23Z" fill="#4285F4" stroke="#4285F4" stroke-width="4" stroke-linejoin="round"/><path d="M16 31C16 26.5817 19.5817 23 24 23C28.4183 23 32 26.5817 32 31" stroke="#4285F4" stroke-width="4" stroke-linecap="round"/><path d="M32 39H42" stroke="#34A853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M37 34V44" stroke="#34A853" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <div>
-                            <h4 class="font-semibold">Google Cloud Vision AI</h4>
-                            <p class="text-sm text-gray-600">For precise, instant skin tone and undertone detection.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 24L24 13L35 24L24 35L13 24Z" fill="#4285F4"/><path d="M24 4L28 9L24 13L20 9L24 4Z" fill="#4285F4"/><path d="M4 24L9 20L13 24L9 28L4 24Z" fill="#4285F4"/><path d="M24 44L20 39L24 35L28 39L24 44Z" fill="#4285F4"/><path d="M44 24L39 28L35 24L39 20L44 24Z" fill="#4285F4"/></svg>
-                        <div>
-                            <h4 class="font-semibold">Google Gemini Models</h4>
-                            <p class="text-sm text-gray-600">To interpret natural language style prompts from our clients.</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <svg class="w-12 h-12" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3H36V12H12V3Z" fill="#AEB0B4"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 18H36V27H12V18Z" fill="#AEB0B4"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 33H36V42H12V33Z" fill="#AEB0B4"/><rect x="3" y="12" width="9" height="6" fill="#7C848E"/><rect x="3" y="27" width="9" height="6" fill="#7C848E"/><rect x="36" y="12" width="9" height="6" fill="#7C848E"/><rect x="36" y="27" width="9" height="6" fill="#7C848E"/></svg>
-                        <div>
-                            <h4 class="font-semibold">Generative AI on Google Cloud</h4>
-                            <p class="text-sm text-gray-600">To power the "My Fitting" photorealistic video try-on feature.</p>
-                        </div>
-                    </div>
+        <div class="section">
+            <h2>Il Tuo Kit Completo per il Successo Online</h2>
+            <div class="service-grid">
+                <div class="service-item">
+                    <h3>Identità e Dominio</h3>
+                    <!-- Dominio aggiornato qui -->
+                    <p>Creazione di un <strong>logo dedicato</strong> e acquisto di un dominio professionale (es: <i>lemazetdugrandpin.com</i>) con email personalizzata.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Sito Web Multilingua</h3>
+                    <p>Un sito elegante e funzionale (IT, EN, FR) con homepage, descrizione, contatti, recensioni, partner locali e <strong>sistema di prenotazione</strong>.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Massima Visibilità</h3>
+                    <p>Configurazione su <strong>Google Maps</strong> e ottimizzazione <strong>SEO</strong> per essere i primi sui motori di ricerca quando qualcuno cerca un alloggio in zona.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Gestione Annunci</h3>
+                    <p>Ottimizzazione dell'annuncio su <strong>Booking.com</strong> e creazione di un nuovo profilo su <strong>AirBnb</strong> per raggiungere una platea più ampia.</p>
                 </div>
             </div>
+            <div class="quote">
+                <p>"Spesso i viaggiatori scoprono un posto su Booking o Google, ma preferiscono contattare direttamente la struttura per prenotare, magari risparmiando sulle commissioni. Un sito proprietario è la chiave per questo."</p>
+            </div>
+            <!-- Immagine esplicativa aggiunta qui -->
+            <img src="https://i.imgur.com/b1hpQiT.png" alt="Schema del percorso utente dalla scoperta alla prenotazione diretta" class="explanatory-image">
         </div>
-    </section>
 
-    <!-- Roadmap Section -->
-    <section class="section-container bg-white">
-        <h2 class="section-title fade-in">Phased Integration Roadmap</h2>
-        <h3 class="main-headline fade-in">A Disciplined Rollout to Maximize Impact.</h3>
-        <div class="space-y-8">
-            <div class="fade-in">
-                <p class="font-semibold">Phase 1: "My Atelier" Pilot Launch (Korea) <span class="text-gray-500 font-normal ml-2">(Months 1-4)</span></p>
-                <div class="gantt-bar mt-2"><div class="gantt-progress" style="width: 100%;"></div></div>
-                <p class="text-sm text-gray-600 mt-2"><strong class="text-black">Focus:</strong> AI Color Analysis & Style Curation on `bottegaveneta.com/ko-kr`.<br>**Goal:** Validate the user experience in a key market and gather initial engagement data.</p>
-            </div>
-            <div class="fade-in">
-                <p class="font-semibold">Phase 2: "My Fitting" Pilot & CRM Link <span class="text-gray-500 font-normal ml-2">(Months 5-8)</span></p>
-                <div class="gantt-bar mt-2"><div class="gantt-progress" style="width: 100%;"></div></div>
-                <p class="text-sm text-gray-600 mt-2"><strong class="text-black">Focus:</strong> Introduce GenAI Video Try-On to the Korean pilot. Integrate saved profile data with the central Kering CRM.<br>**Goal:** Test the "wow factor," measure the omnichannel impact, and prepare the CRM for global data.</p>
-            </div>
-            <div class="fade-in">
-                <p class="font-semibold">Phase 3: Global Rollout & Optimization <span class="text-gray-500 font-normal ml-2">(Month 9+ Ongoing)</span></p>
-                <div class="gantt-bar mt-2"><div class="gantt-progress" style="width: 100%;"></div></div>
-                <p class="text-sm text-gray-600 mt-2"><strong class="text-black">Focus:</strong> Sequentially launch "My Atelier" and "My Fitting" in EU & NA markets. Analyze global data and refine cost-management strategies.<br>**Goal:** Maximize global ROI and scale the benefits across the entire Kering ecosystem.</p>
+        <div class="section">
+            <h2>Come Potrebbe Essere il Tuo Sito</h2>
+            <p>Qui sotto trovi alcuni esempi di stile e layout. Ogni elemento è ovviamente personalizzabile per rispecchiare al meglio l'anima della tua casa.</p>
+            <div class="gallery">
+                <img src="https://i.imgur.com/FUsL8od.jpeg" alt="Esempio sito stile naturale" class="gallery-image">
+                <img src="https://i.imgur.com/guvYB5p.jpeg" alt="Esempio sito stile elegante" class="gallery-image">
+                <img src="https://i.imgur.com/ABrfT8H.jpeg" alt="Esempio sito stile minimale" class="gallery-image">
             </div>
         </div>
-    </section>
 
-    <!-- Investment & Financials Section -->
-    <section class="section-container">
-        <h2 class="section-title fade-in">Investment & Financials</h2>
-        <h3 class="main-headline fade-in">A Phased Investment in Long-Term Value.</h3>
-        <p class="text-lg text-gray-600 leading-relaxed max-w-3xl fade-in mb-10">
-            This project transforms a one-time development cost into a predictable, usage-based operational expense, aligning our investment directly with customer engagement.
-        </p>
-        <!-- FIXED: Added back the two missing metric cards -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="metric-card fade-in">
-                <p class="text-sm text-gray-500">Phase 1 Investment</p>
-                <p class="text-3xl font-semibold mt-2">&euro;250k</p>
-                <p class="text-sm text-gray-600 mt-2">One-time development for AI Curation & Profile features.</p>
-            </div>
-            <div class="metric-card fade-in">
-                <p class="text-sm text-gray-500">Phase 2 Investment</p>
-                <p class="text-3xl font-semibold mt-2">&euro;400k</p>
-                <p class="text-sm text-gray-600 mt-2">One-time development for Video Try-On & CRM Sync.</p>
-            </div>
-            <div class="metric-card fade-in">
-                <p class="text-sm text-gray-500">Recurring AI Cost</p>
-                <p class="text-3xl font-semibold mt-2">Usage-Based</p>
-                <p class="text-sm text-gray-600 mt-2">~&euro;0.10 per analysis. ~&euro;2.00 per video. Managed via our exclusivity strategies.</p>
-            </div>
-             <div class="metric-card fade-in bg-green-50">
-                <p class="text-sm text-green-800">Projected ROI (CLV)</p>
-                <p class="text-3xl font-semibold mt-2 text-green-900">+25%</p>
-                <p class="text-sm text-green-800 mt-2">Driven by hyper-personalized marketing and clienteling.</p>
-            </div>
+        <div class="section pricing">
+            <h2>Un'Offerta Esclusiva Pensata per Te</h2>
+            <p>Per questo progetto completo:</p>
+            <p class="price-original">Prezzo di listino: €1400</p>
+            <div class="price">€1000</div>
+            <p>Un investimento unico per una presenza digitale duratura e professionale.</p>
+            <div class="cta-button">Parliamone!</div>
         </div>
-    </section>
+        
+        <div class="footer">
+            <p>Questa è una proposta interattiva. Contattami per definire insieme i dettagli!</p>
+        </div>
 
-    <section class="section-container bg-white">
-        <h2 class="section-title fade-in">Key Business Metrics</h2>
-        <h3 class="main-headline fade-in">Measuring Success Beyond the "Wow Factor".</h3>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="metric-card fade-in">
-                <p class="text-sm text-gray-500">Customer Acquisition Cost</p>
-                <p class="text-4xl font-semibold mt-2">-10%</p>
-                <p class="text-sm text-gray-600 mt-2">By making account creation more valuable and desirable.</p>
-            </div>
-            <div class="metric-card fade-in">
-                <p class="text-sm text-gray-500">Average Order Value (AOV)</p>
-                <p class="text-4xl font-semibold mt-2">+15%</p>
-                <p class="text-sm text-gray-600 mt-2">For users who engage with the full "My Atelier" funnel.</p>
-            </div>
-            <div class="metric-card fade-in">
-                <p class="text-sm text-gray-500">In-Store Sales Uplift</p>
-                <p class="text-4xl font-semibold mt-2">+5%</p>
-                <p class="text-sm text-gray-600 mt-2">For transactions assisted by Client Advisors using "My Atelier" data.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Cost Management Section -->
-    <section class="section-container">
-        <h2 class="section-title fade-in">Strategic Cost Management</h2>
-        <h3 class="main-headline fade-in">An Exclusive Service, Not an Open Expense.</h3>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="metric-card fade-in">
-                <h4 class="font-semibold text-lg mb-2">Gated Exclusivity</h4>
-                <p class="text-sm text-gray-600">"My Fitting" will be an exclusive benefit for registered clients, transforming a feature cost into a powerful **data acquisition asset**.</p>
-            </div>
-            <div class="metric-card fade-in">
-                <h4 class="font-semibold text-lg mb-2">Event-Driven Hype</h4>
-                <p class="text-sm text-gray-600">We will create marketing moments by unlocking the feature during new collection launches and special **"Styling Weeks"** to drive traffic and urgency.</p>
-            </div>
-            <div class="metric-card fade-in">
-                <h4 class="font-semibold text-lg mb-2">The Omnichannel Bridge</h4>
-                <p class="text-sm text-gray-600">In-store Client Advisors can grant customers temporary full access, **rewarding physical visits** and empowering our retail teams.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <!-- The Data Moat Section -->
-    <section class="section-container bg-white">
-        <h2 class="section-title fade-in">Our Defensible Advantage</h2>
-        <h3 class="main-headline fade-in">The "Data Moat"</h3>
-        <div class="flex flex-col md:flex-row items-center gap-8">
-            <div class="w-full md:w-1/2 fade-in">
-                <p class="text-lg text-gray-600 leading-relaxed">
-                    Any competitor can eventually integrate similar AI. Our true, long-term advantage is not the technology itself, but the **proprietary data ecosystem** we build with it.
-                    <br><br>
-                    By linking a customer's **visual profile** (their colors) and their **semantic preferences** (their mood) with their **transaction history** in our CRM, we create a rich, 360-degree understanding of our client that is impossible to replicate. This data will fuel the next generation of personalization.
-                </p>
-            </div>
-            <div class="w-full md:w-1/2 fade-in">
-                <svg class="w-full" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
-                    <text x="10" y="45" font-size="10" fill="#6b7280">Visual Profile</text><rect x="10" y="50" width="80" height="30" rx="5" fill="#e5e7eb"/>
-                    <text x="10" y="105" font-size="10" fill="#6b7280">Style Prompt</text><rect x="10" y="110" width="80" height="30" rx="5" fill="#e5e7eb"/>
-                    <text x="10" y="165" font-size="10" fill="#6b7280">Purchase History</text><rect x="10" y="170" width="80" height="30" rx="5" fill="#e5e7eb"/>
-                    <path d="M 95 65 L 195 105" stroke="#9ca3af" stroke-dasharray="2 2" /><path d="M 95 125 L 195 105" stroke="#9ca3af" stroke-dasharray="2 2" /><path d="M 95 185 L 195 105" stroke="#9ca3af" stroke-dasharray="2 2" />
-                    <rect x="200" y="80" width="90" height="50" rx="5" fill="#004d40"/><text x="215" y="108" font-size="10" fill="white">Unified CRM</text><text x="222" y="120" font-size="10" fill="white">Profile</text>
-                </svg>
-            </div>
-        </div>
-    </section>
+    <!-- ELEMENTO HTML PER IL POPUP (LIGHTBOX) -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
+    <!-- SCRIPT JAVASCRIPT PER GESTIRE IL POPUP -->
     <script>
-        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        const ganttObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.gantt-progress').forEach(bar => { bar.style.width = '100%'; });
-                }
-            });
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const galleryImages = document.querySelectorAll('.gallery-image');
+        const closeBtn = document.querySelector('.modal-close');
+
+        galleryImages.forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
         });
-        document.querySelectorAll('.gantt-bar').forEach(el => ganttObserver.observe(el));
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        closeBtn.onclick = closeModal;
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script>
+
 </body>
 </html>
